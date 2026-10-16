@@ -1,0 +1,94 @@
+### CMD: python --version
+Python 3.12.10
+### EXIT: 0
+
+### CMD: python make_sample.py
+Made sample/names.txt and sample/tree with three small files
+### EXIT: 0
+
+### CMD: python make_sample.py
+Stopped: sample already exists. Nothing was replaced or deleted.
+### EXIT: 1
+
+### CMD: python -c "print(open('sample/names.txt').read())"
+Report.docx
+notes.txt
+photo1.jpg
+report.DOCX
+Notes.txt
+docs/Plan.txt
+budget.xlsx
+NOTES.TXT
+Photo2.jpg
+docs/plan.txt
+
+### EXIT: 0
+
+### CMD: python casecheck.py names sample/names.txt
+Checked 10 names
+### EXIT: 0
+
+### CMD: python casecheck.py names sample/names.txt
+Names checked: 10
+Groups of names that differ only in letter case: 3
+  'Report.docx', 'report.DOCX'
+  'notes.txt', 'Notes.txt', 'NOTES.TXT'
+  'docs/Plan.txt', 'docs/plan.txt'
+Nothing was renamed or changed.
+### EXIT: 1
+
+### CMD: python casecheck.py folder sample/tree
+Names checked: 4
+No names found that differ only in letter case.
+That does not mean the names will work on every system.
+### EXIT: 0
+
+### CMD: python -m unittest -v
+test_folder_root_link_refused (test_casecheck.FilesystemSafety.test_folder_root_link_refused) ... ok
+test_list_hardlink_refused (test_casecheck.FilesystemSafety.test_list_hardlink_refused) ... ok
+test_list_linked_parent_refused (test_casecheck.FilesystemSafety.test_list_linked_parent_refused) ... ok
+test_list_symlink_existing_dangling_and_selfloop_refused (test_casecheck.FilesystemSafety.test_list_symlink_existing_dangling_and_selfloop_refused) ... ok
+test_scandir_permission_error_is_not_a_clean_report (test_casecheck.FilesystemSafety.test_scandir_permission_error_is_not_a_clean_report) ... ok
+test_setup_linked_parent_refused (test_casecheck.FilesystemSafety.test_setup_linked_parent_refused) ... ok
+test_setup_traversal_refused (test_casecheck.FilesystemSafety.test_setup_traversal_refused) ... ok
+test_traversal_refused (test_casecheck.FilesystemSafety.test_traversal_refused) ... ok
+test_tree_file_link_refused (test_casecheck.FilesystemSafety.test_tree_file_link_refused) ... ok
+test_tree_hardlink_refused (test_casecheck.FilesystemSafety.test_tree_hardlink_refused) ... ok
+test_tree_recursive_loop_refused (test_casecheck.FilesystemSafety.test_tree_recursive_loop_refused) ... ok
+test_tree_special_pipe_refused (test_casecheck.FilesystemSafety.test_tree_special_pipe_refused) ... skipped 'Unix pipe unavailable'
+test_collision_inside_one_folder (test_casecheck.Folder.test_collision_inside_one_folder) ... ok
+test_folder_and_file_with_same_name_apart_from_case (test_casecheck.Folder.test_folder_and_file_with_same_name_apart_from_case) ... ok
+test_folder_report_names_the_folder (test_casecheck.Folder.test_folder_report_names_the_folder) ... ok
+test_not_a_folder (test_casecheck.Folder.test_not_a_folder) ... ok
+test_same_name_in_different_folders_is_fine (test_casecheck.Folder.test_same_name_in_different_folders_is_fine) ... ok
+test_sample_folder_is_clean (test_casecheck.Folder.test_sample_folder_is_clean) ... ok
+test_accented_letters (test_casecheck.Groups.test_accented_letters) ... ok
+test_different_text_is_not_a_collision (test_casecheck.Groups.test_different_text_is_not_a_collision) ... ok
+test_empty_list (test_casecheck.Groups.test_empty_list) ... ok
+test_no_collision (test_casecheck.Groups.test_no_collision) ... ok
+test_order_of_first_appearance (test_casecheck.Groups.test_order_of_first_appearance) ... ok
+test_same_name_twice_is_not_a_collision (test_casecheck.Groups.test_same_name_twice_is_not_a_collision) ... ok
+test_three_names_one_group (test_casecheck.Groups.test_three_names_one_group) ... ok
+test_two_names (test_casecheck.Groups.test_two_names) ... ok
+test_two_separate_groups (test_casecheck.Groups.test_two_separate_groups) ... ok
+test_blank_lines_skipped (test_casecheck.Names.test_blank_lines_skipped) ... ok
+test_clean_list (test_casecheck.Names.test_clean_list) ... ok
+test_missing_list (test_casecheck.Names.test_missing_list) ... ok
+test_not_utf8 (test_casecheck.Names.test_not_utf8) ... ok
+test_only_first_20_shown (test_casecheck.Names.test_only_first_20_shown) ... ok
+test_sample_list (test_casecheck.Names.test_sample_list) ... ok
+test_special_names_printed_as_escapes (test_casecheck.Names.test_special_names_printed_as_escapes) ... ok
+test_usage (test_casecheck.Names.test_usage) ... ok
+test_windows_line_endings_in_list (test_casecheck.Names.test_windows_line_endings_in_list) ... ok
+test_no_case_variant_file_is_created (test_casecheck.ReadOnly.test_no_case_variant_file_is_created) ... ok
+test_nothing_changed_or_created (test_casecheck.ReadOnly.test_nothing_changed_or_created) ... ok
+test_cli_repeat_preserves_every_output (test_casecheck.SafeSetup.test_cli_repeat_preserves_every_output) ... ok
+test_existing_file_preserved (test_casecheck.SafeSetup.test_existing_file_preserved) ... ok
+test_existing_folder_preserves_nested_bytes_and_mtime (test_casecheck.SafeSetup.test_existing_folder_preserves_nested_bytes_and_mtime) ... ok
+test_repeat_preserves_every_output (test_casecheck.SafeSetup.test_repeat_preserves_every_output) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.202s
+
+OK (skipped=1)
+### EXIT: 0
